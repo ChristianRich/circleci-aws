@@ -15,12 +15,29 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: npm install
+      - run:
+          name: Install dependencies
+          command: npm install
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm test
+      - run:
+          name: Running tests
+          command: npm test
+  # deploy:
+  #   working_directory: ~/project
+  #   docker:
+  #       - image: circleci/node:chakracore-8.11.1
+  #   steps:
+        # Steps to be added
 
+workflows:
+  version: 2
+  # The build and deploy workflow
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy
