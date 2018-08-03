@@ -4,9 +4,9 @@
   "repository": "git@github.com:ChristianRich/circleci-aws.git",
   "license": "ISC",
   "scripts": {
-    "start": "npm run build && node build/server/index.js",
+    "start": "node build/server",
     "build": "rm -rf ./build && npm run build:server",
-    "build:server": "rm -rf ./build/server && ./node_modules/.bin/babel -d ./build/server ./server -s --copy-files",
+    "build:server": "rm -rf ./build/server && babel -d ./build/server ./server -s --copy-files",
     "test": "echo No tests configured"
   },
   "engines": {
@@ -98,13 +98,13 @@
     ]
   },
   "dependencies": {
-    "babel-cli": "^6.26.0",
     "express": "^4.16.3",
     "morgan": "^1.9.0",
     "winston": "^3.0.0",
     "winston-daily-rotate-file": "^3.3.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-loader": "^7.1.2",
