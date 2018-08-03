@@ -98,13 +98,13 @@
     ]
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "express": "^4.16.3",
     "morgan": "^1.9.0",
     "winston": "^3.0.0",
     "winston-daily-rotate-file": "^3.3.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-loader": "^7.1.2",
