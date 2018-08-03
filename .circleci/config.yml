@@ -23,8 +23,6 @@ jobs:
           name: Running tests
           command: npm test
   deploy:
-    machine:
-      enabled: true
     steps:
       - run:
           name: AWS EC2 deploy
