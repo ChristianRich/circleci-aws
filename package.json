@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && node build/server/index.js",
     "build": "rm -rf ./build && npm run build:server",
-    "build:server": "rm -rf ./build/server && babel -d ./build/server ./server -s --copy-files",
+    "build:server": "rm -rf ./build/server && ./node_modules/.bin/babel -d ./build/server ./server -s --copy-files",
     "test": "echo No tests configured"
   },
   "engines": {
