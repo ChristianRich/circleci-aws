@@ -19,14 +19,10 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      # - run:
-      #     name: Running tests
-      #     command: npm test
-  deploy:
-    machine:
-      enabled: true
-    steps:
       - run:
-          name: Deploy over SSH
+          name: Running tests
+          command: npm test
+      - deploy:
+          name: Deploy
           command: |
             ssh -o "StrictHostKeyChecking no" ubuntu@54.153.193.186 "cd ~/circleci-aws; git pull; npm i; npm run build; pm2 start build/server"
