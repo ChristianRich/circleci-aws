@@ -6,7 +6,6 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -30,10 +29,9 @@ jobs:
       - run:
           name: Deploy over SSH
           command: |
-            ssh -o "StrictHostKeyChecking no" ubuntu@13.236.1.99
+            ssh -o "StrictHostKeyChecking no" ubuntu@13.236.1.99 "cd ~/circleci-aws; git pull"
 workflows:
   version: 2
-  # The build and deploy workflow
   build_and_deploy:
     jobs:
       - build
