@@ -27,9 +27,15 @@ jobs:
       enabled: true
     steps:
       - run:
-          name: Deploy
+          name: AWS EC2 deploy
           command: |
-            ssh -o "StrictHostKeyChecking no" ubuntu@13.236.1.107 "cd ~/circleci-aws; git pull; npm i; npm run build; pm2 stop build/server; pm2 start build/server"
+            ssh -o StrictHostKeyChecking=no ubuntu@13.236.1.107
+            cd ~/circleci-aws
+            git pull
+            npm i
+            npm run build
+            pm2 stop build/server
+            pm2 start build/server
 workflows:
   version: 2
   build-and-deploy:
