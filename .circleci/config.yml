@@ -30,7 +30,7 @@ jobs:
       - run:
           name: Deploy over SSH
           command: |
-            ssh -o "StrictHostKeyChecking no" ubuntu@$13.236.1.99
+            ssh -o "StrictHostKeyChecking no" ubuntu@13.236.1.99
 workflows:
   version: 2
   # The build and deploy workflow
