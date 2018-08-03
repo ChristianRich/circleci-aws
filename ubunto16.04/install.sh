@@ -16,7 +16,7 @@ sudo apt-get install -y nodejs
 
 # Update to latest NPM and install Gulp and PM2 process manager
 sudo npm install -g npm
-sudo npm i -g gulp pm2
+sudo npm i -g gulp pm2 babel-cli
 
 # Nginx
 sudo apt-get install nginx -y
