@@ -24,7 +24,7 @@ jobs:
           command: npm test
   deploy:
     docker:
-      - image: circleci/chakracore-8.11
+      - image: circleci/node:chakracore-8.11
     steps:
       - run:
           name: AWS EC2 deploy
