@@ -25,4 +25,4 @@ jobs:
       - deploy:
           name: Deploy
           command: |
-            ssh -o "StrictHostKeyChecking no" ubuntu@54.153.193.186 "cd ~/circleci-aws; git pull; npm i; npm run build; pm2 start build/server"
+            ssh -o "StrictHostKeyChecking no" ubuntu@54.153.193.186 "cd ~/circleci-aws; git pull; npm i; npm run build; pm2 stop build/server; pm2 start build/server"
