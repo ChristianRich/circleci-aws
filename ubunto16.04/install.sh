@@ -2,8 +2,9 @@
 # Install dependencies on Ubuntu 16.04
 set -e
 
-# Permissions
-sudo chown -R $USER:$(id -gn $USER) /home/ubuntu/.config
+# Permissions so git can access home folder
+sudo chown -R $USER:$(id -gn $USER) .
+# sudo chown -R $USER:$(id -gn $USER) ~/home/ubuntu
 
 # Update packages, install Kerberos and build-essential package (dpkg-dev, g++, gcc, libc, make)
 sudo apt-get update
@@ -20,6 +21,8 @@ sudo npm i -g gulp pm2 babel-cli
 
 # Nginx
 sudo apt-get install nginx -y
+sudo mkdir /etc/nginx/ssl
+# sudo openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048
 sudo update-rc.d nginx defaults
 
 # Redis
@@ -33,5 +36,7 @@ sudo apt-get install mongodb-org=3.4.1 mongodb-org-server=3.4.1 mongodb-org-shel
 ulimit -n 1024 # Increase soft limits
 
 # Run createAdminUser.js with Mongo shell
-mongo < createAdminUser.js
 sudo systemctl start mongod
+mongo < createAdminUser.js
+sudo systemctl restart mongod
+sudo systemctl status mongod
